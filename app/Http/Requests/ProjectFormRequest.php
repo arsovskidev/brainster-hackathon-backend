@@ -27,14 +27,13 @@ class ProjectFormRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required|max:250',
-            'content' => 'required|min:250',
+            'content' => 'required',
             'location' => 'required',
-            'year' => 'required|integer|digits_between:1900,'. $currentYear,
-            'image_first' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_second' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_third' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_fourth' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'year' => 'required',
+            'image_first' => 'required',
+            'image_second' => 'required',
+            'image_third' => 'required',
+            'image_fourth' => 'required'
         ];
-
     }
 }
