@@ -25,12 +25,9 @@ class NewsFormRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'required|max:250',
-            'content' => 'required|min:250',
-            'image_first' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_second' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_third' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_fourth' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'date' => 'required|date|date_format:Y-m-d',
+            'content' => 'required',
+            'image' => 'required',
         ];
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,17 @@ Route::group(['prefix' => 'project'], function () {
     Route::post('',                 [ProjectController::class, 'store'])->name('project.store');
     Route::post('{project}',           [ProjectController::class, 'update'])->name('project.update');
     Route::delete('{project}',        [ProjectController::class, 'destroy'])->name('project.destroy');
+});
+
+
+Route::group(['prefix' => 'news'], function () {
+    Route::get('/',           [NewsController::class, 'index'])->name('news.index');
+
+    Route::get('/create',           [NewsController::class, 'create'])->name('news.create');
+    Route::get('/{article}',          [NewsController::class, 'show'])->name('news.show');
+    Route::get('/{article}/edit',     [NewsController::class, 'edit'])->name('news.edit');
+
+    Route::post('',                 [NewsController::class, 'store'])->name('news.store');
+    Route::post('{article}',           [NewsController::class, 'update'])->name('news.update');
+    Route::delete('{article}',        [NewsController::class, 'destroy'])->name('news.destroy');
 });
