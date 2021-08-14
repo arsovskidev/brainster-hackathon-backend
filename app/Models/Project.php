@@ -14,4 +14,9 @@ class Project extends Model
         'description', 'content', 'location', 'year', 'image_first', 'image_second', 'image_third', 'image_fourth',
         'token'
     ];
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 }
