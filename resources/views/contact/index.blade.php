@@ -8,6 +8,9 @@
             <div class="w-full md:w-1/3 md:max-w-none bg-white px-8 md:px-10 py-8 md:py-10 mb-3 mx-auto md:my-6 rounded-md shadow-lg shadow-gray-600 md:flex md:flex-col h-full">
                 <div class="w-full flex-grow">
                     <h2 class="text-center font-bold uppercase mb-4">GENERAL</h2>
+                    @if($general->isEmpty())
+                        <p class="text-center mb-2 text-xl text-gray-700">No messages yet.</p>
+                    @else
                     @foreach($general as $message)
                     <div class="rounded-lg shadow-lg shadow-gray-600 bg-yellow-400 my-5 border-4 border-gray-300 border-opacity-45">
                         <div class=" p-2">
@@ -24,11 +27,15 @@
                         </div>
                     </div>
                     @endforeach
+                    @endif
                 </div>
             </div>
             <div class="w-full md:w-1/3 md:max-w-none bg-white px-8 md:px-10 py-8 md:py-10 mb-3 mx-auto md:my-6 rounded-md shadow-lg shadow-gray-600 md:flex md:flex-col h-full">
                 <div class="w-full flex-grow">
                     <h2 class="text-center font-bold uppercase mb-4">PROJECTS</h2>
+                    @if($projects->isEmpty())
+                        <p class="text-center mb-2 text-xl text-gray-700">No messages yet.</p>
+                    @else
                     @foreach($projects as $message)
                     <div class="rounded-lg shadow-lg shadow-gray-600 bg-yellow-400 my-5 border-4 border-gray-300 border-opacity-45">
                         <div class=" p-2">
@@ -54,6 +61,7 @@
                         </div>
                     </div>
                     @endforeach
+                    @endif
                 </div>
             </div>
 
