@@ -14,16 +14,16 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
-        Service::insert([
-            [
-                'name' => 'Steel Detailing'
-            ],
-            [
-                'name' => 'Joint Calculations'
-            ],
-            [
-                'name' => 'Static Calculations'
-            ]
-        ]);
+        $service1 = new Service();
+        $service1->name = "Steel Detailing";
+        $service1->save();
+
+        $service2 = new Service();
+        $service2->name = "Joint Calculations";
+        $service2->save();
+
+        $service3 = new Service();
+        $service3->name = "Static Calculations";
+        $service3->save();
     }
 }
