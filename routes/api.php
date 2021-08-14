@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\Api\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,9 @@ use App\Http\Controllers\Api\ServiceController;
 Route::group(['prefix' => 'v1', 'middleware' => ['throttle:60,1']], function () {
     Route::get('/projects',      [ProjectController::class, 'index']);
     Route::get('/projects/{id}', [ProjectController::class, 'show']);
-
     Route::get('/news',          [NewsController::class, 'index']);
     Route::get('/news/{id}',     [NewsController::class, 'show']);
-
     Route::get('/services',      [ServiceController::class, 'index']);
+
+    Route::post('/contact',      [ContactController::class, 'store']);
 });
