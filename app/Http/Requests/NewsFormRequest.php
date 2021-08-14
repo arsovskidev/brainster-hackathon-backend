@@ -28,9 +28,9 @@ class NewsFormRequest extends FormRequest
             'description' => 'required|max:250',
             'content' => 'required|min:250',
             'image_first' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_second' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_third' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image_fourth' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image_second' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image_third' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image_fourth' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }
