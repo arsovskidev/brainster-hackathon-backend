@@ -56,6 +56,16 @@
                                 value="{{ old('location') }}" required />
                         </div>
 
+                        <!-- Services -->
+                        <div class="mt-4">
+                            <x-label for="services" :value="__('Services')" />
+                            <select id="services" class="block mt-1 w-full" name="services[]" multiple="multiple"
+                                required>
+                                @foreach ($services as $service)
+                                    <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                         <!--  Image_first -->
                         <div class="mt-4">
@@ -97,6 +107,13 @@
     </div>
 
     <x-slot name="script">
-
+        <script>
+            $(document).ready(function() {
+                $('#services').select2({
+                    placeholder: "Please select one ore more services.",
+                    allowClear: true,
+                });
+            });
+        </script>
     </x-slot>
 </x-app-layout>

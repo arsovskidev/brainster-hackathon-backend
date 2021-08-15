@@ -17,7 +17,7 @@ class CreateProjectServiceTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('project_id');
-            $table->unsignedBigInteger('service_id');
+            $table->unsignedBigInteger('service_id')->nullable();
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');

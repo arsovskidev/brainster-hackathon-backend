@@ -44,7 +44,7 @@
                         <div class="mt-4">
                             <x-label for="image" :value="__('Image')" />
 
-                            <input type="file" name="image" class="block mt-1 w-full" required>
+                            <input type="file" name="image" class="block mt-1 w-full">
                         </div>
 
                         <img src="{{ asset($article->image) }}" alt="">

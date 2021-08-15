@@ -29,6 +29,7 @@ class ProjectCreateRequest extends FormRequest
             'content' => 'required',
             'location' => 'required',
             'year' => 'required|digits:4|integer|min:1900|max:' . (date('Y') + 1),
+            'services' => 'required',
             'image_first' => 'required|image|max:2048',
             'image_second' => 'required|image|max:2048',
             'image_third' => 'required|image|max:2048',

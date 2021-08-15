@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use App\Traits\ImageUpload;
-use App\Http\Requests\NewsFormRequest;
+use App\Http\Requests\NewsCreateRequest;
+use App\Http\Requests\NewsUpdateRequest;
 
 class NewsController extends Controller
 {
@@ -36,7 +37,7 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(NewsFormRequest $request)
+    public function store(NewsCreateRequest $request)
 
     {
         $article = new News();
@@ -83,7 +84,7 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(NewsFormRequest $request, $id)
+    public function update(NewsUpdateRequest $request, $id)
     {
         $article = News::find($id);
 
