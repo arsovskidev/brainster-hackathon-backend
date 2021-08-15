@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,10 @@ Route::group(['prefix' => 'news'], function () {
     Route::post('{article}',           [NewsController::class, 'update'])->name('news.update');
     Route::delete('{article}',        [NewsController::class, 'destroy'])->name('news.destroy');
 });
+Route::group(['middleware' => ['auth'], 'prefix' => 'contact'], function(){
+        Route::get('', [ContactController::class, 'index'])->name('contact.index');
+});
+
+
+
+require __DIR__.'/auth.php';
