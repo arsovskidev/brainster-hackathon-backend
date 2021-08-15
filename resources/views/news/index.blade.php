@@ -35,7 +35,7 @@
                                             </th>
 
                                             <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">
-                                            Actions
+                                                Actions
                                             </th>
 
                                         </tr>
@@ -48,7 +48,8 @@
                                                 <td class="w-1/10 text-left py-3 px-4">{{ $article->content }}
                                                 </td>
                                                 <td class="w-1/10 text-left py-3 px-4">
-                                                    <img src="{{ asset($article->image) }}" alt="">
+                                                    <img class="img-thumbnail" style="height: 110px"
+                                                        src="{{ asset($article->image) }}" alt="">
                                                 </td>
 
 
@@ -78,8 +79,8 @@
                                     </tbody>
                                 </table>
                                 @if ($news->isEmpty())
-                                        <p class="text-center pt-3 text-xl text-gray-700">No articles yet.</p>
-                                        @endif
+                                    <p class="text-center pt-3 text-xl text-gray-700">No articles yet.</p>
+                                @endif
                             </div>
                         </div>
                     </div>

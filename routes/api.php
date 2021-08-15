@@ -25,5 +25,5 @@ Route::group(['prefix' => 'v1', 'middleware' => ['throttle:60,1']], function () 
     Route::get('/news/{id}',     [NewsController::class, 'show']);
     Route::get('/services',      [ServiceController::class, 'index']);
 
-    Route::get('/contact',      [ContactController::class, 'store']);
+    Route::post('/contact',      [ContactController::class, 'store']);
 });

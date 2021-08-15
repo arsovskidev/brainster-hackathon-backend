@@ -8,19 +8,10 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends ResponseController
 {
-    /*
-    |-------------------------------------------------------------------------------
-    | Store contact.
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/contact
-    | Method:         POST
-    | Description:    Adds a contact to the application
-    */
     public function store(Request $request)
     {
         $input = $request->all();
-
-        // Validation for general/project !!!!!
+        
         $rules = [
             'type' => 'required|in:general,project',
             'first_name' => 'required|alpha|max:50',

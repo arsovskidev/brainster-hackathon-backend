@@ -22,7 +22,8 @@
                                 <table class="min-w-full bg-white ">
                                     <thead class="bg-gray-700 text-white ">
                                         <tr>
-                                            <th class="w-1/10 text-center py-3 px-4 uppercase font-semibold text-sm">Title
+                                            <th class="w-1/10 text-center py-3 px-4 uppercase font-semibold text-sm">
+                                                Title
                                             </th>
                                             <th class="w-1/10 text-center py-3 px-4 uppercase font-semibold text-sm">
                                                 Description
@@ -48,22 +49,27 @@
                                     <tbody class="text-gray-700 ">
                                         @foreach ($projects as $project)
                                             <tr data-id="{{ $project->id }}">
-                                                <td class="w-1/10 text-center py-3 px-4 border-bottom">{{ $project->title }}</td>
-                                                <td class="w-1/10 text-center py-3 px-4  border-bottom">{{substr($project->description, 0, 30)}}...
+                                                <td class="w-1/10 text-center py-3 px-4 border-bottom">
+                                                    {{ $project->title }}</td>
+                                                <td class="w-1/10 text-center py-3 px-4  border-bottom">
+                                                    {{ substr($project->description, 0, 30) }}...
                                                 </td>
-                                                <td class="w-1/10 text-center py-3 px-4  border-bottom">{{substr($project->content, 0, 50)}}...</td>
-                                                <td class="w-1/10 text-center py-3 px-4  border-bottom">{{ $project->location }}</td>
-                                                <td class="w-1/10 text-center py-3 px-4 border-bottom">{{ $project->year }}</td>
+                                                <td class="w-1/10 text-center py-3 px-4  border-bottom">
+                                                    {{ substr($project->content, 0, 50) }}...</td>
+                                                <td class="w-1/10 text-center py-3 px-4  border-bottom">
+                                                    {{ $project->location }}</td>
+                                                <td class="w-1/10 text-center py-3 px-4 border-bottom">
+                                                    {{ $project->year }}</td>
 
                                                 <td class="w-1/10 text-center py-3 px-4 flex border-bottom">
-                                                    <img class="img-thumbnail mr-1 w-1/4" src="{{ asset($project->image_first) }}"
-                                                     alt="">
-                                                    <img class="img-thumbnail mr-1 w-1/4" src="{{ asset($project->image_second) }}"
-                                                     alt="">
-                                                    <img class="img-thumbnail mr-1 w-1/4" src="{{ asset($project->image_third) }}"
-                                                     alt="">
-                                                    <img class="img-thumbnail w-1/4" src="{{ asset($project->image_fourth) }}"
-                                                     alt="">
+                                                    <img class="img-thumbnail mr-1 w-1/4" style="height: 110px"
+                                                        src="{{ asset($project->image_first) }}" alt="">
+                                                    <img class="img-thumbnail mr-1 w-1/4" style="height: 110px"
+                                                        src="{{ asset($project->image_second) }}" alt="">
+                                                    <img class="img-thumbnail mr-1 w-1/4" style="height: 110px"
+                                                        src="{{ asset($project->image_third) }}" alt="">
+                                                    <img class="img-thumbnail mr-1 w-1/4" style="height: 110px"
+                                                        src="{{ asset($project->image_fourth) }}" alt="">
                                                 </td>
 
                                                 <td class="w-1/10 text-center py-3 border-bottom">
@@ -92,8 +98,8 @@
                                     </tbody>
                                 </table>
                                 @if ($projects->isEmpty())
-                                        <p class="text-center pt-3 text-xl text-gray-700">No projects yet.</p>
-                                        @endif
+                                    <p class="text-center pt-3 text-xl text-gray-700">No projects yet.</p>
+                                @endif
                             </div>
                         </div>
                     </div>
