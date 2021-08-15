@@ -28,7 +28,7 @@ class ProjectUpdateRequest extends FormRequest
             'description' => 'required|max:250',
             'content' => 'required',
             'location' => 'required',
-            'year' => 'required|digits:4|integer|min:1900|max:' . (date('Y') + 1),
+            'year' => 'required|digits:4|integer|min:1899|max:' . (date('Y') + 1),
         ];
     }
 }

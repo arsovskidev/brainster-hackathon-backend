@@ -2,7 +2,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('All projects') }}
+            {{ __('All Projects') }}
         </h2>
 
     </x-slot>
@@ -12,7 +12,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <a class="ml-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
+                    <a class="ml-4 inline-flex items-center px-4 py-2 bg-gray-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
                         href="{{ route('project.create') }}">
                         {{ __('New project') }}</a>
 
@@ -20,36 +20,27 @@
                         <div class=" py-8 w-full ">
                             <div class="shadow overflow-x-scroll rounded border-b border-gray-200">
                                 <table class="min-w-full bg-white ">
-                                    <thead class="bg-gray-800 text-white ">
+                                    <thead class="bg-gray-700 text-white ">
                                         <tr>
-                                            <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">Title
+                                            <th class="w-1/10 text-center py-3 px-4 uppercase font-semibold text-sm">Title
                                             </th>
-                                            <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">
-                                                Content
-                                            </th>
-                                            <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">
+                                            <th class="w-1/10 text-center py-3 px-4 uppercase font-semibold text-sm">
                                                 Description
                                             </th>
-                                            <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">
+                                            <th class="w-1/10 text-center py-3 px-4 uppercase font-semibold text-sm">
+                                                Content
+                                            </th>
+                                            <th class="w-1/10 text-center py-3 px-4 uppercase font-semibold text-sm">
                                                 Location
                                             </th>
-                                            <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">
+                                            <th class="w-1/10 text-center py-3 px-4 uppercase font-semibold text-sm">
                                                 Year
                                             </th>
-                                            <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">
-                                                First image
+                                            <th class="w-1/10 text-center py-3 px-4 uppercase font-semibold text-sm">
+                                                Images
                                             </th>
-                                            <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">
-                                                Second image
-                                            </th>
-                                            <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">
-                                                Third image
-                                            </th>
-                                            <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">
-                                                Fourth image
-                                            </th>
-                                            <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">
-
+                                            <th class="w-1/10 text-center py-3 px-4 uppercase font-semibold text-sm">
+                                                Actions
                                             </th>
 
                                         </tr>
@@ -57,35 +48,29 @@
                                     <tbody class="text-gray-700 ">
                                         @foreach ($projects as $project)
                                             <tr data-id="{{ $project->id }}">
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $project->title }}</td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $project->content }}</td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $project->description }}
+                                                <td class="w-1/10 text-center py-3 px-4 border-bottom">{{ $project->title }}</td>
+                                                <td class="w-1/10 text-center py-3 px-4  border-bottom">{{substr($project->description, 0, 30)}}...
                                                 </td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $project->location }}</td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $project->year }}</td>
+                                                <td class="w-1/10 text-center py-3 px-4  border-bottom">{{substr($project->content, 0, 50)}}...</td>
+                                                <td class="w-1/10 text-center py-3 px-4  border-bottom">{{ $project->location }}</td>
+                                                <td class="w-1/10 text-center py-3 px-4 border-bottom">{{ $project->year }}</td>
 
-                                                <td class="w-1/10 text-left py-3 px-4">
-                                                    <img src="{{ asset($project->image_first) }}"
-                                                        class="object-contain h-48 w-full" alt="">
-                                                </td>
-                                                <td class="w-1/10 text-left py-3 px-4">
-                                                    <img src="{{ asset($project->image_second) }}"
-                                                        class="object-contain h-48 w-full" alt="">
-                                                </td>
-                                                <td class="w-1/10 text-left py-3 px-4">
-                                                    <img src="{{ asset($project->image_third) }}"
-                                                        class="object-contain h-48 w-full" alt="">
-                                                </td>
-                                                <td class="w-1/10 text-left py-3 px-4">
-                                                    <img src="{{ asset($project->image_fourth) }}"
-                                                        class="object-contain h-48 w-full" alt="">
+                                                <td class="w-1/10 text-center py-3 px-4 flex border-bottom">
+                                                    <img class="img-thumbnail mr-1 w-1/4" src="{{ asset($project->image_first) }}"
+                                                     alt="">
+                                                    <img class="img-thumbnail mr-1 w-1/4" src="{{ asset($project->image_second) }}"
+                                                     alt="">
+                                                    <img class="img-thumbnail mr-1 w-1/4" src="{{ asset($project->image_third) }}"
+                                                     alt="">
+                                                    <img class="img-thumbnail w-1/4" src="{{ asset($project->image_fourth) }}"
+                                                     alt="">
                                                 </td>
 
-                                                <td class="w-1/10 text-left py-3 px-4">
-                                                    <div class="mx-5  px-5">
+                                                <td class="w-1/10 text-center py-3 border-bottom">
+                                                    <div class="mx-5">
                                                         <div class="my-2">
                                                             <a href="{{ route('project.edit', $project->id) }}"
-                                                                class="ml-4 inline-flex items-center px-2 py-1 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
+                                                                class="ml-4 inline-flex items-center px-2 py-1 bg-gray-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
                                                                 type="submit">Edit</a>
 
                                                         </div>
@@ -94,7 +79,7 @@
                                                             @method('DELETE')
                                                             @csrf
                                                             <button
-                                                                class="ml-4 inline-flex items-center px-2 py-1 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
+                                                                class="ml-4 inline-flex items-center px-2 py-1 bg-gray-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
                                                                 type="submit">Delete</button>
                                                         </form>
 
@@ -106,6 +91,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                @if ($projects->isEmpty())
+                                        <p class="text-center pt-3 text-xl text-gray-700">No projects yet.</p>
+                                        @endif
                             </div>
                         </div>
                     </div>

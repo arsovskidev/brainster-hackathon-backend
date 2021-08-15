@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <!-- Validation Errors -->
@@ -25,7 +25,7 @@
                         </div>
 
                         <!-- date -->
-                        <div>
+                        <div class="mt-4">
                             <x-label for="date" :value="__('Date')" />
 
                             <x-input id="date" class="block mt-1 w-full" type="date" name="date"
@@ -33,11 +33,11 @@
                         </div>
 
                         <!-- Content -->
-                        <div>
+                        <div class="mt-4">
                             <x-label for="content" :value="__('Content')" />
 
-                            <x-input id="content" class="block mt-1 w-full" type="text" name="content"
-                                value="{{ $article->content }}" required autofocus />
+                            <textarea id="content" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" name="content"
+                                value="{{ old('content') }}" required />{{ $article->content }}</textarea>
                         </div>
 
                         <!--  Image -->
@@ -45,9 +45,9 @@
                             <x-label for="image" :value="__('Image')" />
 
                             <input type="file" name="image" class="block mt-1 w-full" required>
-                        </div>
 
-                        <img src="{{ asset($article->image) }}" alt="">
+                            <img class="w-1/6 mt-3" src="{{ asset($article->image) }}" alt="">
+                        </div>
 
                         <div class="flex items-center justify-end mt-4">
                             <x-button class="ml-4" type="submit">

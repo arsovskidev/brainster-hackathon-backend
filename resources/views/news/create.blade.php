@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <!-- Validation Errors -->
@@ -36,8 +36,8 @@
                         <div class="mt-4">
                             <x-label for="content" :value="__('Content')" />
 
-                            <x-input id="content" class="block mt-1 w-full" type="text" name="content"
-                                value="{{ old('content') }}" required />
+                            <textarea id="content" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" name="content"
+                                value="{{ old('content') }}" required /></textarea>
                         </div>
 
                         <!--  Image -->
