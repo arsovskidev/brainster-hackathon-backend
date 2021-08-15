@@ -18,7 +18,7 @@
 
                     <div class="">
                         <div class="md:px-32 py-8 w-full">
-                            <div class="shadow overflow-hidden rounded border-b border-gray-200">
+                            <div class="shadow overflow-x-scroll rounded border-b border-gray-200">
                                 <table class="min-w-full bg-white">
                                     <thead class="bg-gray-800 text-white">
                                         <tr>

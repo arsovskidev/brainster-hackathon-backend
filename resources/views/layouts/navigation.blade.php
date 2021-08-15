@@ -90,6 +90,12 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('project.index')" :active="request()->routeIs('project.index')">
+                {{ __('Projects') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('news.index')" :active="request()->routeIs('news.index')">
+                {{ __('News') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
