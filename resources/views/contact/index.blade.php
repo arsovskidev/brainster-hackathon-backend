@@ -56,14 +56,14 @@
                                     {{ $message->phone }}</p>
                             </div>
                             <div class="p-2 border-t-4 border-gray-300 border-opacity-45 text-center">
-                                <button
+                                <a href='{{ asset($message->scheme) }}' download
                                     class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mb-2">
                                     <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20">
                                         <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
                                     </svg>
                                     <span>Download</span>
-                                </button>
+                                </a>
                                 <p class="text-center mb-2 text-xl text-gray-700">
                                     <span class="font-bold">Location:</span><br> {{ $message->location }}
                                 </p>

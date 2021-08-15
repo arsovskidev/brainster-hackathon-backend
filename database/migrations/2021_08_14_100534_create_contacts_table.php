@@ -19,7 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
-            $table->integer('phone');
+            $table->string('phone');
             
             $table->string('location')->nullable();
             $table->string('scheme')->nullable();

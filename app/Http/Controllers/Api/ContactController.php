@@ -27,15 +27,26 @@ class ContactController extends ResponseController
             'last_name' => 'required|alpha|max:50',
             'email' => 'required|email',
             'phone' => 'required|numeric|min:9',
-            'location' => 'required',
-            'scheme' => 'required',
             'message' => 'required|max:255'
         ];
+
+        if($request->type == 'project'){
+            $rules += [
+                'location' => 'required',
+                'scheme' => 'required',
+            ];
+        }
 
         $validation = Validator::make($input, $rules);
 
         if ($validation->fails()) {
             return $this->sendResponse("error", $validation->errors(), 400);
+        }
+
+        if($request->scheme != ''){
+            $ext = strtolower($request->scheme->getClientOriginalExtension());
+            $scheme = '/schemes/' . time() . '.' . $ext;
+            $request->scheme->move(public_path('schemes'), $scheme);
         }
 
         Contact::create($input);
