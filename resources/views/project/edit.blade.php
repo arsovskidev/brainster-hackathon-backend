@@ -63,7 +63,7 @@
                             <x-label for="image_first" :value="__('Image_first')" />
 
                             <x-input id="image_first" class="block mt-1 w-full" type="text" name="image_first"
-                                value="{{ $project->image_first }}" required autofocus />
+                                value="{{ $project->image_first }}" autofocus />
                         </div>
 
 
@@ -72,7 +72,7 @@
                             <x-label for="image_second" :value="__('Image_second')" />
 
                             <x-input id="image_second" class="block mt-1 w-full" type="text" name="image_second"
-                                value="{{ $project->image_second }}" required autofocus />
+                                value="{{ $project->image_second }}" autofocus />
                         </div>
 
 
@@ -81,7 +81,7 @@
                             <x-label for="image_first" :value="__('Image_third')" />
 
                             <x-input id="image_third" class="block mt-1 w-full" type="text" name="image_third"
-                                value="{{ $project->image_third }}" required autofocus />
+                                value="{{ $project->image_third }}" autofocus />
                         </div>
 
 
@@ -90,7 +90,7 @@
                             <x-label for="image_fourth" :value="__('Image_fourth')" />
 
                             <x-input id="image_fourth" class="block mt-1 w-full" type="text" name="image_fourth"
-                                value="{{ $project->image_fourth }}" required autofocus />
+                                value="{{ $project->image_fourth }}" autofocus />
                         </div>
 
 

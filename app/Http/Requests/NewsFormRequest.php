@@ -26,7 +26,7 @@ class NewsFormRequest extends FormRequest
         return [
             'title' => 'required',
             'content' => 'required',
-            'image' => 'required|max:2048',
+            'image' => 'required|image|max:2048',
             'date' => 'required|date|date_format:Y-m-d',
         ];
     }
