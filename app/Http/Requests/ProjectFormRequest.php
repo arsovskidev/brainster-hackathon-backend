@@ -29,7 +29,10 @@ class ProjectFormRequest extends FormRequest
             'content' => 'required',
             'location' => 'required',
             'year' => 'required|digits:4|integer|min:1900|max:' . (date('Y') + 1),
-            'image_first' => 'required|image|max:2048',
+            'image_first' => 'required|max:2048',
+            'image_second' => 'required|max:2048',
+            'image_third' => 'required|max:2048',
+            'image_fourth' => 'required|max:2048',
         ];
     }
 }

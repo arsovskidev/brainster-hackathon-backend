@@ -17,10 +17,10 @@
                         {{ __('New project') }}</a>
 
                     <div class="">
-                        <div class="md:px-32 py-8 w-full">
-                            <div class="shadow overflow-hidden rounded border-b border-gray-200">
-                                <table class="min-w-full bg-white">
-                                    <thead class="bg-gray-800 text-white">
+                        <div class=" py-8 w-full ">
+                            <div class="shadow overflow-x-scroll rounded border-b border-gray-200">
+                                <table class="min-w-full bg-white ">
+                                    <thead class="bg-gray-800 text-white ">
                                         <tr>
                                             <th class="w-1/10 text-left py-3 px-4 uppercase font-semibold text-sm">Title
                                             </th>
@@ -54,7 +54,7 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody class="text-gray-700">
+                                    <tbody class="text-gray-700 ">
                                         @foreach ($projects as $project)
                                             <tr data-id="{{ $project->id }}">
                                                 <td class="w-1/10 text-left py-3 px-4">{{ $project->title }}</td>

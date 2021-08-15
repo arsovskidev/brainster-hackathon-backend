@@ -28,7 +28,7 @@
                         <div>
                             <x-label for="date" :value="__('Date')" />
 
-                            <x-input id="date" class="block mt-1 w-full" type="text" name="date"
+                            <x-input id="date" class="block mt-1 w-full" type="date" name="date"
                                 value="{{ $article->date }}" required autofocus />
                         </div>
 
