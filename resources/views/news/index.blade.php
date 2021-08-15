@@ -22,19 +22,20 @@
                                 <table class="min-w-full bg-white">
                                     <thead class="bg-gray-700 text-white">
                                         <tr>
-                                            <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">Title
+                                            <th class="w-1/5 text-center py-3 px-4 uppercase font-semibold text-sm">
+                                                Title
                                             </th>
-                                            <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">
+                                            <th class="w-1/5 text-center py-3 px-4 uppercase font-semibold text-sm">
                                                 Date
                                             </th>
-                                            <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">
+                                            <th class="w-1/5 text-center py-3 px-4 uppercase font-semibold text-sm">
                                                 Content
                                             </th>
-                                            <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">
+                                            <th class="w-1/5 text-center py-3 px-4 uppercase font-semibold text-sm">
                                                 Image
                                             </th>
 
-                                            <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">
+                                            <th class="w-1/5 text-center py-3 px-4 uppercase font-semibold text-sm">
                                                 Actions
                                             </th>
 
@@ -43,17 +44,17 @@
                                     <tbody class="text-gray-700">
                                         @foreach ($news as $article)
                                             <tr data-id="{{ $article->id }}">
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $article->title }}</td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $article->date }}</td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $article->content }}
+                                                <td class="w-1/10 text-center py-3 px-4">{{ $article->title }}</td>
+                                                <td class="w-1/10 text-center py-3 px-4">{{ $article->date }}</td>
+                                                <td class="w-1/10 text-center py-3 px-4">{{ $article->content }}
                                                 </td>
-                                                <td class="w-1/10 text-left py-3 px-4">
+                                                <td class="w-1/10 text-center py-3 px-4">
                                                     <img class="img-thumbnail" style="height: 110px"
                                                         src="{{ asset($article->image) }}" alt="">
                                                 </td>
 
 
-                                                <td class="w-1/10 text-left py-3 px-4">
+                                                <td class="w-1/10 text-center py-3 px-4">
 
                                                     <div class="mx-5  px-5">
                                                         <div class="my-2">
