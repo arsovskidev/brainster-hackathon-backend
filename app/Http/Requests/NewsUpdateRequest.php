@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjectUpdateRequest extends FormRequest
+class NewsUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,8 @@ class ProjectUpdateRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'required|max:250',
             'content' => 'required',
-            'location' => 'required',
-            'year' => 'required|digits:4|integer|min:1900|max:' . (date('Y') + 1),
-            'services' => 'required',
+            'date' => 'required|date|date_format:Y-m-d',
         ];
     }
 }

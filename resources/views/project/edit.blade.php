@@ -49,13 +49,29 @@
                                 value="{{ $project->location }}" required autofocus />
                         </div>
 
-
                         <!--  Year -->
                         <div class="mt-4">
                             <x-label for="year" :value="__('Year')" />
 
                             <x-input id="year" class="block mt-1 w-full" type="number" name="year"
                                 value="{{ $project->year }}" required />
+                        </div>
+
+                        <!-- Services -->
+                        <div class="mt-4">
+                            <x-label for="services" :value="__('Services')" />
+                            <select id="services" class="block mt-1 w-full" name="services[]" multiple="multiple"
+                                required>
+                                @foreach ($services as $service)
+                                    @if ($project->services->contains($service->id))
+                                        <option selected="selected" value="{{ $service->id }}">{{ $service->name }}
+                                        </option>
+                                    @else
+                                        <option value="{{ $service->id }}">{{ $service->name }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
 
                         <!--  Image_first -->
@@ -106,6 +122,10 @@
     </div>
 
     <x-slot name="script">
-
+        <script>
+            $(document).ready(function() {
+                $('#services').select2();
+            });
+        </script>
     </x-slot>
 </x-app-layout>

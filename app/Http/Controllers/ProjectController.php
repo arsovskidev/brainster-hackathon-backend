@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Traits\ImageUpload;
 use App\Http\Requests\ProjectCreateRequest;
 use App\Http\Requests\ProjectUpdateRequest;
+use App\Models\Service;
 
 class ProjectController extends Controller
 {
@@ -28,7 +29,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('project.create');
+        $services = Service::get();
+        return view('project.create', compact('services'));
     }
 
     /**
@@ -56,8 +58,12 @@ class ProjectController extends Controller
         $project->image_fourth = $image_fourth;
 
         if ($project->save()) {
+            foreach ($request->services as $service) {
+                $project->services()->attach($service);
+            }
             return redirect()->route('project.index')->with('success', 'Project created!');
         }
+
     }
 
     /**
@@ -79,8 +85,9 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
+        $services = Service::get();
         $project = Project::find($id);
-        return view('project.edit', compact('project', 'id'));
+        return view('project.edit', compact('project', 'id', 'services'));
     }
 
     /**
@@ -118,6 +125,10 @@ class ProjectController extends Controller
         }
 
         if ($project->save()) {
+            $project->services()->detach();
+            foreach ($request->services as $service) {
+                $project->services()->attach($service);
+            }
             return redirect()->route('project.index')->with('success', 'Project updated!');
         }
     }
@@ -130,8 +141,9 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        Project::find($id)->delete();
-
+        $project = Project::find($id);
+        $project->services()->detach();
+        $project->delete();
         return redirect()->route('project.index');
     }
 }

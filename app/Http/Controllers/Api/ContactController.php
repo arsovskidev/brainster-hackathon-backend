@@ -27,7 +27,7 @@ class ContactController extends ResponseController
             'last_name' => 'required|alpha|max:50',
             'email' => 'required|email',
             'phone' => 'required|numeric|min:9',
-            'message' => 'required|max:255'
+            'message' => 'required|max:255',
         ];
 
         if($request->type == 'project'){

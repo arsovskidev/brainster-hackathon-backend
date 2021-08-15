@@ -18,9 +18,8 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/',                     [ContactController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
-require __DIR__ . '/auth.php';
 
-Route::group(['prefix' => 'project'], function () {
+Route::group(['prefix' => 'project', 'middleware' => 'auth'], function () {
     Route::get('/',                 [ProjectController::class, 'index'])->name('project.index');
 
     Route::get('/create',           [ProjectController::class, 'create'])->name('project.create');
@@ -33,7 +32,7 @@ Route::group(['prefix' => 'project'], function () {
 });
 
 
-Route::group(['prefix' => 'news'], function () {
+Route::group(['prefix' => 'news', 'middleware' => 'auth'], function () {
     Route::get('/',                 [NewsController::class, 'index'])->name('news.index');
 
     Route::get('/create',           [NewsController::class, 'create'])->name('news.create');
