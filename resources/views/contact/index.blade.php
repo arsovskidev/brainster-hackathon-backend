@@ -14,19 +14,19 @@
                 @else
                     @foreach ($general as $message)
                         <div
-                            class="rounded-lg shadow-lg shadow-gray-600 bg-yellow-400 my-5 border-4 border-gray-300 border-opacity-45">
+                            class="rounded-lg shadow-lg shadow-gray-600 bg-gray-700 my-5 border-4 border-gray-300 border-opacity-45">
                             <div class=" p-2">
-                                <p class="text-center mb-2 text-xl text-gray-700"><span class="font-bold">From:</span>
+                                <p class="text-center mb-2 text-xl text-white"><span class="font-bold">From:</span>
                                     {{ $message->first_name . ' ' . $message->last_name }} </p>
                             </div>
                             <div class="p-2 border-t-4 border-gray-300 border-opacity-45">
-                                <p class="text-center mb-2 text-gray-700"><span class="font-bold">Email:</span>
+                                <p class="text-center mb-2 text-white"><span class="font-bold">Email:</span>
                                     {{ $message->email }}</p>
-                                <p class="text-center mb-2 text-gray-700"><span class="font-bold">Phone:</span>
+                                <p class="text-center mb-2 text-white"><span class="font-bold">Phone:</span>
                                     {{ $message->phone }}</p>
                             </div>
                             <div class="p-2 border-t-4 border-gray-300 border-opacity-45">
-                                <p class="text-center mb-2 text-xl text-gray-700">
+                                <p class="text-center mb-2 text-xl text-white">
                                     <span class="font-bold">Message:</span><br> {{ $message->message }}
                                 </p>
                             </div>
@@ -44,15 +44,15 @@
                 @else
                     @foreach ($projects as $message)
                         <div
-                            class="rounded-lg shadow-lg shadow-gray-600 bg-yellow-400 my-5 border-4 border-gray-300 border-opacity-45">
+                            class="rounded-lg shadow-lg shadow-gray-600 bg-gray-700 my-5 border-4 border-gray-300 border-opacity-45">
                             <div class=" p-2">
-                                <p class="text-center mb-2 text-xl text-gray-700"><span class="font-bold">From:</span>
+                                <p class="text-center mb-2 text-xl text-white"><span class="font-bold">From:</span>
                                     {{ $message->first_name . ' ' . $message->last_name }} </p>
                             </div>
                             <div class="p-2 border-t-4 border-gray-300 border-opacity-45">
-                                <p class="text-center mb-2 text-gray-700"><span class="font-bold">Email:</span>
+                                <p class="text-center mb-2 text-white"><span class="font-bold">Email:</span>
                                     {{ $message->email }}</p>
-                                <p class="text-center mb-2 text-gray-700"><span class="font-bold">Phone:</span>
+                                <p class="text-center mb-2 text-white"><span class="font-bold">Phone:</span>
                                     {{ $message->phone }}</p>
                             </div>
                             <div class="p-2 border-t-4 border-gray-300 border-opacity-45 text-center">
@@ -64,12 +64,12 @@
                                     </svg>
                                     <span>Download</span>
                                 </a>
-                                <p class="text-center mb-2 text-xl text-gray-700">
+                                <p class="text-center mb-2 text-xl text-white">
                                     <span class="font-bold">Location:</span><br> {{ $message->location }}
                                 </p>
                             </div>
                             <div class="p-2 border-t-4 border-gray-300 border-opacity-45">
-                                <p class="text-center mb-2 text-xl text-gray-700">
+                                <p class="text-center mb-2 text-xl text-white">
                                     <span class="font-bold">Message:</span><br> {{ $message->message }}
                                 </p>
                             </div>
