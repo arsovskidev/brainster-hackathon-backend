@@ -40,13 +40,14 @@
                                 value="{{ $article->content }}" required autofocus />
                         </div>
 
-                        <!-- Image -->
-                        <div>
+                        <!--  Image -->
+                        <div class="mt-4">
                             <x-label for="image" :value="__('Image')" />
 
-                            <x-input id="image" class="block mt-1 w-full" type="text" name="image"
-                                value="{{ $article->image }}" required autofocus />
+                            <input type="file" name="image" class="block mt-1 w-full" required>
                         </div>
+
+                        <img src="{{ asset($article->image) }}" alt="">
 
                         <div class="flex items-center justify-end mt-4">
                             <x-button class="ml-4" type="submit">

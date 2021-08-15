@@ -63,20 +63,27 @@
                                                 </td>
                                                 <td class="w-1/10 text-left py-3 px-4">{{ $project->location }}</td>
                                                 <td class="w-1/10 text-left py-3 px-4">{{ $project->year }}</td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $project->image_first }}
+
+                                                <td class="w-1/10 text-left py-3 px-4">
+                                                    <img src="{{ asset($project->image_first) }}"
+                                                        class="object-contain h-48 w-full" alt="">
                                                 </td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $project->image_second }}
+                                                <td class="w-1/10 text-left py-3 px-4">
+                                                    <img src="{{ asset($project->image_second) }}"
+                                                        class="object-contain h-48 w-full" alt="">
                                                 </td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $project->image_third }}
+                                                <td class="w-1/10 text-left py-3 px-4">
+                                                    <img src="{{ asset($project->image_third) }}"
+                                                        class="object-contain h-48 w-full" alt="">
                                                 </td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $project->image_fourth }}
+                                                <td class="w-1/10 text-left py-3 px-4">
+                                                    <img src="{{ asset($project->image_fourth) }}"
+                                                        class="object-contain h-48 w-full" alt="">
                                                 </td>
 
                                                 <td class="w-1/10 text-left py-3 px-4">
-
                                                     <div class="mx-5  px-5">
                                                         <div class="my-2">
-
                                                             <a href="{{ route('project.edit', $project->id) }}"
                                                                 class="ml-4 inline-flex items-center px-2 py-1 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
                                                                 type="submit">Edit</a>

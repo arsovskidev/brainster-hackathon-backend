@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjectFormRequest extends FormRequest
+class ProjectUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +29,6 @@ class ProjectFormRequest extends FormRequest
             'content' => 'required',
             'location' => 'required',
             'year' => 'required|digits:4|integer|min:1900|max:' . (date('Y') + 1),
-            'image_first' => 'required|image|max:2048',
         ];
     }
 }

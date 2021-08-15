@@ -68,21 +68,21 @@
                         <div class="mt-4">
                             <x-label for="image_second" :value="__('Image second')" />
 
-                            <input type="file" name="image_second" class="block mt-1 w-full">
+                            <input type="file" name="image_second" class="block mt-1 w-full" required>
                         </div>
 
                         <!--  Image_third -->
                         <div class="mt-4">
                             <x-label for="image_third" :value="__('Image third')" />
 
-                            <input type="file" name="image_third" class="block mt-1 w-full">
+                            <input type="file" name="image_third" class="block mt-1 w-full" required>
                         </div>
 
                         <!--  Image_fourth -->
                         <div class="mt-4">
                             <x-label for="image_fourth" :value="__('Image fourth')" />
-                            
-                            <input type="file" name="image_fourth" class="block mt-1 w-full">
+
+                            <input type="file" name="image_fourth" class="block mt-1 w-full" required>
                         </div>
 
                         <div class="flex items-center justify-end mt-4">

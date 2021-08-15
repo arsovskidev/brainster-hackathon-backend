@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Traits\ImageUpload;
-use App\Http\Requests\ProjectFormRequest;
+use App\Http\Requests\ProjectCreateRequest;
+use App\Http\Requests\ProjectUpdateRequest;
 
 class ProjectController extends Controller
 {
@@ -36,7 +37,7 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProjectFormRequest $request)
+    public function store(ProjectCreateRequest $request)
     {
         $project = new Project();
         $project->title = $request->title;
@@ -47,20 +48,12 @@ class ProjectController extends Controller
 
         $image_first = $this->ImageUpload($request->image_first);
         $project->image_first = $image_first;
-
-        // Optional 3 image uploads. Needs optimization and validation for the 3 images !!!
-        if ($request->image_second) {
-            $image_second = $this->ImageUpload($request->image_second);
-            $project->image_second = $image_second;
-        }
-        if ($request->image_third) {
-            $image_third = $this->ImageUpload($request->image_third);
-            $project->image_third = $image_third;
-        }
-        if ($request->image_fourth) {
-            $image_fourth = $this->ImageUpload($request->image_fourth);
-            $project->image_fourth = $image_fourth;
-        }
+        $image_second = $this->ImageUpload($request->image_second);
+        $project->image_second = $image_second;
+        $image_third = $this->ImageUpload($request->image_third);
+        $project->image_third = $image_third;
+        $image_fourth = $this->ImageUpload($request->image_fourth);
+        $project->image_fourth = $image_fourth;
 
         if ($project->save()) {
             return redirect()->route('project.index')->with('success', 'Project created!');
@@ -97,23 +90,36 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProjectFormRequest $request, $id)
+    public function update(ProjectUpdateRequest $request, $id)
     {
         $project = Project::find($id);
-        $input = $request->all();
+        
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->content = $request->content;
+        $project->location = $request->location;
+        $project->year = $request->year;
 
-        $title = $request->input('title');
-        $description = $request->input('description');
-        $content = $request->input('content');
-        $location = $request->input('location');
-        $year = $request->input('year');
-        $image_first = $request->input('image_first');
-        $image_second = $request->input('image_second');
-        $image_third = $request->input('image_third');
-        $image_fourth = $request->input('image_fourth');
+        if($request->image_first != ''){
+            $image_first = $this->ImageUpload($request->image_first);
+            $project->image_first = $image_first;
+        }
+        if($request->image_second != ''){
+            $image_second = $this->ImageUpload($request->image_second);
+            $project->image_second = $image_second;
+        }
+        if($request->image_third != ''){
+            $image_third = $this->ImageUpload($request->image_third);
+            $project->image_third = $image_third;
+        }
+        if($request->image_fourth != ''){
+            $image_fourth = $this->ImageUpload($request->image_fourth);
+            $project->image_fourth = $image_fourth;
+        }
 
-        $project->update($input);
-        return redirect()->route('project.index');
+        if ($project->save()) {
+            return redirect()->route('project.index')->with('success', 'Project updated!');
+        }
     }
 
     /**

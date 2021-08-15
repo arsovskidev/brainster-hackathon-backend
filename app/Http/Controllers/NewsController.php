@@ -73,7 +73,7 @@ class NewsController extends Controller
     public function edit($id)
     {
         $article = News::find($id);
-        return view('News.edit', compact('article', 'id'));
+        return view('news.edit', compact('article', 'id'));
     }
 
     /**
@@ -86,16 +86,20 @@ class NewsController extends Controller
     public function update(NewsFormRequest $request, $id)
     {
         $article = News::find($id);
-        $input = $request->all();
 
-        $title = $request->input('title');
-        $content = $request->input('content');
-        $image = $request->input('image');
-        $date = $request->input('date');
+        $article->title = $request->title;
+        $article->content = $request->content;
 
+        if($request->image != ''){
+            $image = $this->ImageUpload($request->image);
+            $article->image = $image;
+        }
 
-        $article->update($input);
-        return redirect()->route('news.index');
+        $article->date = $request->date;
+
+        if ($article->save()) {
+            return redirect()->route('news.index')->with('success', 'Article updated!');
+        }
     }
 
     /**

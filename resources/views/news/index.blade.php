@@ -33,7 +33,7 @@
                                             <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">
                                                 Image
                                             </th>
-                                            
+
                                             <th class="w-1/5 text-left py-3 px-4 uppercase font-semibold text-sm">
 
                                             </th>
@@ -47,18 +47,18 @@
                                                 <td class="w-1/10 text-left py-3 px-4">{{ $article->date }}</td>
                                                 <td class="w-1/10 text-left py-3 px-4">{{ $article->content }}
                                                 </td>
-                                                <td class="w-1/10 text-left py-3 px-4">{{ $article->image }}</td>
-                                                
+                                                <td class="w-1/10 text-left py-3 px-4">
+                                                    <img src="{{ asset($article->image) }}" alt="">
+                                                </td>
+
 
                                                 <td class="w-1/10 text-left py-3 px-4">
 
                                                     <div class="mx-5  px-5">
                                                         <div class="my-2">
-
                                                             <a href="{{ route('news.edit', $article->id) }}"
                                                                 class="ml-4 inline-flex items-center px-2 py-1 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
                                                                 type="submit">Edit</a>
-
                                                         </div>
                                                         <form action="{{ route('news.destroy', $article->id) }}"
                                                             method="POST">

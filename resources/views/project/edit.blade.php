@@ -12,7 +12,8 @@
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                    <form method="POST" action="{{ route('project.update', $project->id) }}">
+                    <form method="POST" action="{{ route('project.update', $project->id) }}"
+                        enctype="multipart/form-data">
                         @csrf
 
 
@@ -57,43 +58,41 @@
                                 value="{{ $project->year }}" required />
                         </div>
 
+                        <!--  Image_first -->
+                        <div class="mt-4">
+                            <x-label for="image_first" :value="__('Image first')" />
 
-                        <!-- Image_first -->
-                        <div>
-                            <x-label for="image_first" :value="__('Image_first')" />
-
-                            <x-input id="image_first" class="block mt-1 w-full" type="text" name="image_first"
-                                value="{{ $project->image_first }}" autofocus />
+                            <input type="file" name="image_first" class="block mt-1 w-full">
                         </div>
 
+                        <img src="{{ asset($project->image_first) }}" alt="">
 
-                        <!-- Image_second -->
-                        <div>
-                            <x-label for="image_second" :value="__('Image_second')" />
+                        <!--  Image_second -->
+                        <div class="mt-4">
+                            <x-label for="image_second" :value="__('Image second')" />
 
-                            <x-input id="image_second" class="block mt-1 w-full" type="text" name="image_second"
-                                value="{{ $project->image_second }}" autofocus />
+                            <input type="file" name="image_second" class="block mt-1 w-full">
                         </div>
 
+                        <img src="{{ asset($project->image_second) }}" alt="">
 
-                        <!-- Image_third -->
-                        <div>
-                            <x-label for="image_first" :value="__('Image_third')" />
+                        <!--  Image_third -->
+                        <div class="mt-4">
+                            <x-label for="image_third" :value="__('Image third')" />
 
-                            <x-input id="image_third" class="block mt-1 w-full" type="text" name="image_third"
-                                value="{{ $project->image_third }}" autofocus />
+                            <input type="file" name="image_third" class="block mt-1 w-full">
                         </div>
 
+                        <img src="{{ asset($project->image_third) }}" alt="">
 
-                        <!-- Image_fourth -->
-                        <div>
-                            <x-label for="image_fourth" :value="__('Image_fourth')" />
+                        <!--  Image_fourth -->
+                        <div class="mt-4">
+                            <x-label for="image_fourth" :value="__('Image fourth')" />
 
-                            <x-input id="image_fourth" class="block mt-1 w-full" type="text" name="image_fourth"
-                                value="{{ $project->image_fourth }}" autofocus />
+                            <input type="file" name="image_fourth" class="block mt-1 w-full">
                         </div>
 
-
+                        <img src="{{ asset($project->image_fourth) }}" alt="">
 
                         <div class="flex items-center justify-end mt-4">
                             <x-button class="ml-4" type="submit">
