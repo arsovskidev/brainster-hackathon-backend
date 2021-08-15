@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
-use Illuminate\Http\Request;
+use App\Traits\ImageUpload;
 use App\Http\Requests\NewsFormRequest;
 
 class NewsController extends Controller
 {
+    use ImageUpload;
     /**
      * Display a listing of the resource.
      *
@@ -40,14 +41,14 @@ class NewsController extends Controller
     {
         $article = new News();
         $article->title = $request->title;
-        $article->date = $request->date;
         $article->content = $request->content;
-        $article->image = $request->image;
-        
+
+        $image = $this->ImageUpload($request->image);
+        $article->image = $image;
+
+        $article->date = $request->date;
 
         if ($article->save()) {
-
-
             return redirect()->route('news.index')->with('success', 'Article created!');
         }
     }
@@ -88,10 +89,10 @@ class NewsController extends Controller
         $input = $request->all();
 
         $title = $request->input('title');
-        $date = $request->input('date');
         $content = $request->input('content');
         $image = $request->input('image');
-        
+        $date = $request->input('date');
+
 
         $article->update($input);
         return redirect()->route('news.index');

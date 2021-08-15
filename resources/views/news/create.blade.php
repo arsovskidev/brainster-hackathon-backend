@@ -13,7 +13,7 @@
 
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                    <form method="POST" action="{{ route('news.store') }}">
+                    <form method="POST" action="{{ route('news.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Title -->
@@ -44,11 +44,8 @@
                         <div class="mt-4">
                             <x-label for="image" :value="__('Image')" />
 
-                            <x-input id="image" class="block mt-1 w-full" type="text" name="image"
-                                value="{{ old('image') }}" required />
+                            <input type="file" name="image" class="block mt-1 w-full" required>
                         </div>
-
-                        
 
 
                         <div class="flex items-center justify-end mt-4">

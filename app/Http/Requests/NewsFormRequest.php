@@ -25,9 +25,9 @@ class NewsFormRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'date' => 'required|date|date_format:Y-m-d',
             'content' => 'required',
-            'image' => 'required',
+            'image' => 'required|image|max:2048',
+            'date' => 'required|date|date_format:Y-m-d',
         ];
     }
 }

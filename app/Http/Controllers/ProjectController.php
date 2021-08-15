@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProjectFormRequest;
 use App\Models\Project;
-use Illuminate\Http\Request;
+use App\Traits\ImageUpload;
+use App\Http\Requests\ProjectFormRequest;
 
 class ProjectController extends Controller
 {
+    use ImageUpload;
     /**
      * Display a listing of the resource.
      *
@@ -37,21 +38,31 @@ class ProjectController extends Controller
      */
     public function store(ProjectFormRequest $request)
     {
-
         $project = new Project();
         $project->title = $request->title;
         $project->description = $request->description;
         $project->content = $request->content;
         $project->location = $request->location;
         $project->year = $request->year;
-        $project->image_first = $request->image_first;
-        $project->image_second = $request->image_second;
-        $project->image_third = $request->image_third;
-        $project->image_fourth = $request->image_fourth;
+
+        $image_first = $this->ImageUpload($request->image_first);
+        $project->image_first = $image_first;
+
+        // Optional 3 image uploads. Needs optimization and validation for the 3 images !!!
+        if ($request->image_second) {
+            $image_second = $this->ImageUpload($request->image_second);
+            $project->image_second = $image_second;
+        }
+        if ($request->image_third) {
+            $image_third = $this->ImageUpload($request->image_third);
+            $project->image_third = $image_third;
+        }
+        if ($request->image_fourth) {
+            $image_fourth = $this->ImageUpload($request->image_fourth);
+            $project->image_fourth = $image_fourth;
+        }
 
         if ($project->save()) {
-
-
             return redirect()->route('project.index')->with('success', 'Project created!');
         }
     }

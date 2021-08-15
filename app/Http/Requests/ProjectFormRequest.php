@@ -23,17 +23,13 @@ class ProjectFormRequest extends FormRequest
      */
     public function rules()
     {
-        $currentYear = now()->year;
         return [
             'title' => 'required',
             'description' => 'required|max:250',
             'content' => 'required',
             'location' => 'required',
-            'year' => 'required',
-            'image_first' => 'required',
-            'image_second' => 'required',
-            'image_third' => 'required',
-            'image_fourth' => 'required'
+            'year' => 'required|digits:4|integer|min:1900|max:' . (date('Y') + 1),
+            'image_first' => 'required|image|max:2048',
         ];
     }
 }
