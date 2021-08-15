@@ -13,7 +13,7 @@
 
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                    <form method="POST" action="{{ route('project.store') }}">
+                    <form method="POST" action="{{ route('project.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Title -->
@@ -59,37 +59,31 @@
 
                         <!--  Image_first -->
                         <div class="mt-4">
-                            <x-label for="image_first" :value="__('Image_first')" />
+                            <x-label for="image_first" :value="__('Image first')" />
 
-                            <x-input id="image_first" class="block mt-1 w-full" type="text" name="image_first"
-                                value="{{ old('image_first') }}" required />
+                            <input type="file" name="image_first" class="block mt-1 w-full" required>
                         </div>
 
                         <!--  Image_second -->
                         <div class="mt-4">
-                            <x-label for="image_second" :value="__('Image_second')" />
+                            <x-label for="image_second" :value="__('Image second')" />
 
-                            <x-input id="image_second" class="block mt-1 w-full" type="text" name="image_second"
-                                value="{{ old('image_second') }}" required />
+                            <input type="file" name="image_second" class="block mt-1 w-full">
                         </div>
 
                         <!--  Image_third -->
                         <div class="mt-4">
-                            <x-label for="image_third" :value="__('Image_third')" />
+                            <x-label for="image_third" :value="__('Image third')" />
 
-                            <x-input id="image_third" class="block mt-1 w-full" type="text" name="image_third"
-                                value="{{ old('image_third') }}" required />
+                            <input type="file" name="image_third" class="block mt-1 w-full">
                         </div>
 
                         <!--  Image_fourth -->
                         <div class="mt-4">
-                            <x-label for="image_fourth" :value="__('Image_fourth')" />
-
-                            <x-input id="image_fourth" class="block mt-1 w-full" type="text" name="image_fourth"
-                                value="{{ old('image_fourth') }}" required />
+                            <x-label for="image_fourth" :value="__('Image fourth')" />
+                            
+                            <input type="file" name="image_fourth" class="block mt-1 w-full">
                         </div>
-
-
 
                         <div class="flex items-center justify-end mt-4">
                             <x-button class="ml-4">
