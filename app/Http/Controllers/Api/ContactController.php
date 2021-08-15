@@ -20,6 +20,7 @@ class ContactController extends ResponseController
     {
         $input = $request->all();
 
+        // Validation for general/project !!!!!
         $rules = [
             'type' => 'required|in:general,project',
             'first_name' => 'required|alpha|max:50',
